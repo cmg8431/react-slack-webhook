@@ -32,7 +32,7 @@ export class Slack {
    * @param {SlackParameters} options - Options for configuring the Slack message.
    * @returns {Promise<Response>} A Promise that resolves to the fetch response.
    */
-  post({
+  public post({
     text = '<hello, world>',
     channel = '#general',
     username = 'bot',
@@ -76,6 +76,4 @@ export class Slack {
   }
 }
 
-export const test = () => {
-  console.log('test');
-};
+export default (a: number, b: number) => a + b;
