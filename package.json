@@ -2,13 +2,23 @@
   "name": "react-slack-webhook",
   "version": "0.0.0",
   "description": "📢 Send a message directly to a Slack channel from a React app",
-  "main": "index.js",
   "repository": "https://github.com/cmg8431/react-slack-webhook.git",
   "author": "cmg8431 <cmg8431@gmail.com>",
   "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.cjs.map",
+  "types": "./dist/index.d.ts",
+  "keywords": [
+    "slack",
+    "bot"
+  ],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "prepare": "husky install",
-    "build": "tsc",
+    "build": "tsup",
     "format": "prettier \"src/**/*.ts\" --write",
     "lint": "eslint \"src/**/*.ts\" --fix",
     "test": "jest",
@@ -28,6 +38,7 @@
     "lint-staged": "^13.2.3",
     "prettier": "^3.0.0",
     "ts-jest": "^29.1.1",
+    "tsup": "^8.0.1",
     "typescript": "^5.1.6"
   },
   "lint-staged": {
