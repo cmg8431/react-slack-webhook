@@ -13,8 +13,12 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "keywords": [
+    "notifications",
     "slack",
-    "bot"
+    "webhooks",
+    "alerts",
+    "reactjs",
+    "error-reporting"
   ],
   "files": [
     "dist/**/*"
