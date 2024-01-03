@@ -21,9 +21,7 @@ export class Slack {
    * @throws {Error} Throws an error if webhookURL is not provided.
    */
   constructor(webhookURL: string) {
-    if (!webhookURL) {
-      throw new Error('Need a webhookURL!');
-    }
+    if (!webhookURL) throw new Error('A webhook URL is required!');
     this.webhookURL = webhookURL;
   }
 
@@ -36,7 +34,7 @@ export class Slack {
     text = '<hello, world>',
     channel = '#general',
     username = 'bot',
-    icon_emoji = ':iphone:',
+    icon_emoji = ':robot_face:',
   }: SlackParameters = {}): Promise<Response> {
     const payload: SlackParameters = {
       text,
