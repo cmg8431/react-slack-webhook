@@ -1,6 +1,6 @@
 {
   "name": "react-slack-webhook",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "📢 Send a message directly to a Slack channel from a React app",
   "repository": "https://github.com/cmg8431/react-slack-webhook.git",
   "author": "cmg8431 <cmg8431@gmail.com>",
