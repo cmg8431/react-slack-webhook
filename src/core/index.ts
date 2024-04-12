@@ -73,5 +73,3 @@ export class Slack {
     });
   }
 }
-
-export default (a: number, b: number) => a + b;
