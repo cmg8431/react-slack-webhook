@@ -1,9 +1,6 @@
-export interface SlackParameters {
-  channel?: string;
-  username?: string;
-  text?: string;
-  icon_emoji?: string;
-}
+import { Agent } from 'http';
+
+import { MessageAttachment, Block, KnownBlock } from '@slack/types';
 
 /**
  * Performs the fetch request and formats the data for ogs
@@ -35,8 +32,8 @@ export class Slack {
     channel = '#general',
     username = 'bot',
     icon_emoji = ':robot_face:',
-  }: SlackParameters = {}): Promise<Response> {
-    const payload: SlackParameters = {
+  }: WebhookSendArguments = {}): Promise<Response> {
+    const payload: WebhookSendArguments = {
       text,
       channel,
       username,
@@ -52,7 +49,7 @@ export class Slack {
    * @param {SlackParameters} payload - The payload for the Slack message.
    * @returns {string} The formatted request body.
    */
-  private createRequestBody(payload: SlackParameters): string {
+  private createRequestBody(payload: WebhookSendArguments): string {
     return new URLSearchParams({
       payload: JSON.stringify(payload),
     }).toString();
@@ -72,4 +69,29 @@ export class Slack {
       body,
     });
   }
+}
+
+type MetadataType = {
+  event_type: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  event_payload: Record<string, any>;
+};
+
+export interface WebhookDefaultArguments {
+  username?: string;
+  icon_emoji?: string;
+  icon_url?: string;
+  channel?: string;
+  text?: string;
+  link_names?: boolean;
+  agent?: Agent;
+  timeout?: number;
+}
+
+export interface WebhookSendArguments extends WebhookDefaultArguments {
+  attachments?: MessageAttachment[];
+  blocks?: (KnownBlock | Block)[];
+  unfurl_links?: boolean;
+  unfurl_media?: boolean;
+  metadata?: MetadataType;
 }

@@ -1,4 +1,4 @@
-import { Slack, SlackParameters } from './';
+import { Slack, WebhookSendArguments } from './';
 
 describe('Slack', () => {
   const webhookURL = 'https://slack.com/api/api.test';
@@ -19,7 +19,7 @@ describe('Slack', () => {
   });
 
   it('should send a message to slack with custom parameters', async () => {
-    const parameters: SlackParameters = {
+    const parameters: WebhookSendArguments = {
       text: '<custom message>',
       channel: '#custom-channel',
       username: 'bot',
